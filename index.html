@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johnny Depp | Official Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-black: #000000;
+            --secondary-black: #111111;
+            --dark-gray: #222222;
+            --medium-gray: #333333;
+            --light-gray: #444444;
+            --accent-white: #ffffff;
+            --off-white: #f0f0f0;
+            --text-gray: #cccccc;
+            --border-gray: #555555;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary-black);
+            color: var(--accent-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(0, 0, 0, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--accent-white);
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo {
+            color: var(--accent-white);
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 2px;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--accent-white);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover::after {
+            transform: scaleX(1);
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin-right: 20px;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: var(--accent-white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--accent-white);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent-white);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        /* Hero Section with Fade Images */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            margin-top: 70px;
+            background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .fade-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            filter: grayscale(100%) brightness(0.6);
+        }
+        
+        .fade-image.active {
+            opacity: 0.4;
+        }
+        
+        .hero-content {
+            display: flex;
+            width: 100%;
+            padding: 0 5%;
+            align-items: center;
+            z-index: 2;
+        }
+        
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+            z-index: 2;
+        }
+        
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+        
+        .hero-text p {
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            margin-bottom: 30px;
+            color: var(--text-gray);
+            max-width: 500px;
+        }
+        
+        .action-btn {
+            background-color: transparent;
+            color: var(--accent-white);
+            border: 1px solid var(--accent-white);
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            min-width: 220px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-white);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .action-btn:hover {
+            color: var(--primary-black);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
+        
+        .action-btn:hover::before {
+            left: 0;
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            z-index: 2;
+        }
+        
+        .hero-image img {
+            max-width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        
+        .hero-image img:hover {
+            filter: grayscale(0%);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 5%;
+            background-color: var(--secondary-black);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-white), transparent);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 2px;
+            background-color: var(--accent-white);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 1px solid var(--accent-white);
+            z-index: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 5px;
+            position: relative;
+            z-index: 2;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        
+        .about-image img:hover {
+            filter: grayscale(0%);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--accent-white);
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text-gray);
+        }
+        
+        /* News Section */
+        .news {
+            padding: 100px 5%;
+            background-color: var(--primary-black);
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-card {
+            background-color: var(--secondary-black);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border-gray);
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+        }
+        
+        .news-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        
+        .news-card:hover .news-img {
+            filter: grayscale(0%);
+        }
+        
+        .news-content {
+            padding: 20px;
+        }
+        
+        .news-date {
+            color: var(--accent-white);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+        
+        .news-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Contact Form Section */
+        .contact {
+            padding: 100px 5%;
+            background-color: var(--secondary-black);
+        }
+        
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--dark-gray);
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid var(--border-gray);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--accent-white);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: var(--medium-gray);
+            border: 1px solid var(--border-gray);
+            border-radius: 4px;
+            color: var(--accent-white);
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-white);
+        }
+        
+        .form-control::placeholder {
+            color: var(--text-gray);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 5%;
+            background-color: var(--primary-black);
+        }
+        
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 20px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--secondary-black);
+            border-radius: 10px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            border-left: 3px solid var(--accent-white);
+        }
+        
+        .testimonial-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-white);
+            filter: grayscale(100%);
+        }
+        
+        .testimonial-text {
+            flex: 1;
+        }
+        
+        .testimonial-name {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-location {
+            color: var(--accent-white);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--border-gray);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .slider-dot.active {
+            background-color: var(--accent-white);
+            transform: scale(1.2);
+        }
+        
+        /* Announcement Section */
+        .announcement {
+            padding: 100px 5%;
+            background-color: var(--secondary-black);
+        }
+        
+        .official-document {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--off-white);
+            color: var(--primary-black);
+            padding: 50px;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            border-top: 20px solid var(--primary-black);
+        }
+        
+        .letterhead {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-black);
+        }
+        
+        .logo-circle {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+        }
+        
+        .logo-circle span {
+            color: var(--accent-white);
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .company-info h3 {
+            color: var(--primary-black);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .company-info p {
+            color: var(--light-gray);
+        }
+        
+        .document-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: var(--primary-black);
+        }
+        
+        .document-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            color: var(--medium-gray);
+        }
+        
+        .document-content p {
+            margin-bottom: 20px;
+        }
+        
+        .document-content ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .document-content li {
+            margin-bottom: 10px;
+        }
+        
+        .warning {
+            color: var(--primary-black);
+            font-weight: 600;
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-left: 3px solid var(--primary-black);
+            margin: 20px 0;
+        }
+        
+        .document-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .document-btn {
+            padding: 12px 25px;
+            border: 1px solid var(--primary-black);
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s;
+            background: transparent;
+            color: var(--primary-black);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .document-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-black);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .document-btn:hover {
+            color: var(--accent-white);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .document-btn:hover::before {
+            left: 0;
+        }
+        
+        /* Report Form Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background-color: var(--secondary-black);
+            width: 90%;
+            max-width: 600px;
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+            border: 1px solid var(--border-gray);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            color: var(--accent-white);
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: transform 0.3s;
+        }
+        
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+        
+        /* Social Media Section */
+        .social-media {
+            padding: 80px 5%;
+            text-align: center;
+            background-color: var(--primary-black);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--secondary-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-white);
+            font-size: 24px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid var(--border-gray);
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent-white);
+            color: var(--primary-black);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-black);
+            padding: 40px 5%;
+            text-align: center;
+            border-top: 1px solid var(--accent-white);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Loading animation */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border-gray);
+            border-top: 3px solid var(--accent-white);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text {
+                margin-bottom: 40px;
+            }
+            
+            .hero-image {
+                justify-content: center;
+            }
+            
+            .hero-image img {
+                max-width: 90%;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .testimonial-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-icons {
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: right 0.3s ease;
+                z-index: 999;
+                backdrop-filter: blur(10px);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 20px 0;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .official-document {
+                padding: 30px 20px;
+            }
+            
+            .document-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .document-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .social-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .action-btn {
+                width: 100%;
+                min-width: auto;
+            }
+            
+            .contact-form {
+                padding: 25px 20px;
+            }
+            
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+            
+            .document-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <a href="#" class="logo">JOHNNY DEPP</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" onclick="scrollToSection('home')">Home</a></li>
+                <li><a href="#" onclick="scrollToSection('about')">About</a></li>
+                <li><a href="#" onclick="scrollToSection('news')">News</a></li>
+                <li><a href="#" onclick="scrollToSection('testimonials')">Testimonials</a></li>
+                <li><a href="#" onclick="toggleActionButton()" id="fanClubBtn">Join Fan Club</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Fade Images -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <img src="data:image/jpeg;base64,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" class="fade-image active" alt="Johnny Depp portrait in black and white">
+            <img src="https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" class="fade-image" alt="Johnny Depp acting scene">
+            <img src="https://images.unsplash.com/photo-1622037022771-2c5e2c54bb37?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" class="fade-image" alt="Johnny Depp dramatic portrait">
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>JOHNNY DEPP</h1>
+                <p>Acclaimed actor, producer, and musician known for his versatile roles and unique character portrayals in film. A cinematic icon whose performances have captivated audiences worldwide.</p>
+                <button class="action-btn" id="actionButton">Join Community</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://static.independent.co.uk/2022/04/25/14/Johnny%20Depp%20Sauvage%20ad%202021.png?width=1200&height=1200&fit=crop" alt="Johnny Depp portrait">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">About Johnny</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="data:image/jpeg;base64,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" alt="Johnny Depp portrait">
+            </div>
+            <div class="about-text">
+                <h3>The Actor & The Artist</h3>
+                <p>John Christopher Depp II is an American actor, producer, musician, and painter. He is the recipient of multiple accolades, including a Golden Globe Award and a Screen Actors Guild Award, in addition to nominations for three Academy Awards and two BAFTA awards.</p>
+                <p>Depp made his feature film debut in the horror film A Nightmare on Elm Street (1984) and appeared in Platoon (1986), before rising to prominence as a teen idol on the television series 21 Jump Street (1987–1990).</p>
+                <p>He has gained worldwide critical acclaim for his performances in many films, including Edward Scissorhands (1990), What's Eating Gilbert Grape (1993), Donnie Brasco (1997), Fear and Loathing in Las Vegas (1998), and Sweeney Todd: The Demon Barber of Fleet Street (2007).</p>
+                <p>Depp's collaborations with director Tim Burton include nine films: Edward Scissorhands, Ed Wood, Sleepy Hollow, Charlie and the Chocolate Factory, Corpse Bride, Sweeney Todd, Alice in Wonderland, Dark Shadows, and Alice Through the Looking Glass.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news" id="news">
+        <h2 class="section-title">Latest News</h2>
+        <div class="news-grid">
+            <div class="news-card">
+                <img src="https://i.ytimg.com/vi/wwEo2Zz_0aY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCTF1ZbQI4L67uOeS6zW0fWdbv6mQ" alt="Film news" class="news-img">
+                <div class="news-content">
+                    <div class="news-date">June 15, 2023</div>
+                    <h3 class="news-title">New Film Project Announced</h3>
+                    <p>Johnny Depp to star in upcoming historical drama directed by acclaimed filmmaker. The film is set to begin production this fall.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="https://akns-images.eonline.com/eol_images/Entire_Site/2017715/rs_600x600-170815123252-600.2.Johnny-Depp-Childrens-Hospital.ms.081517.jpg?fit=around%7C1200:1200&output-quality=90&crop=1200:1200;center,top" alt="Charity event" class="news-img">
+                <div class="news-content">
+                    <div class="news-date">May 28, 2023</div>
+                    <h3 class="news-title">Charity Concert for Children's Hospital</h3>
+                    <p>Depp to perform with his band at a charity event supporting children's healthcare. All proceeds will benefit St. Jude Children's Research Hospital.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="https://i.ytimg.com/vi/78I9vSem9OQ/maxresdefault.jpg" alt="Art exhibition" class="news-img">
+                <div class="news-content">
+                    <div class="news-date">April 10, 2023</div>
+                    <h3 class="news-title">Art Exhibition Opening</h3>
+                    <p>Johnny Depp's painting collection to be exhibited at a prestigious art gallery next month. The collection features over 50 original works.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Contact Management</h2>
+        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="16daccac-7434-487a-86f1-315c83c193a0">
+            <input type="hidden" name="subject" value="New Contact Form Submission from Johnny Depp Website">
+            <input type="hidden" name="from_name" value="Johnny Depp Official Website">
+            <input type="hidden" name="redirect" value="https://web3forms.com/success">
+            <input type="checkbox" name="botcheck" style="display: none;">
+            
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control" required placeholder="Enter your full name">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control" required placeholder="Enter your email address">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number">
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" class="form-control" required placeholder="Enter message subject">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" class="form-control" rows="5" required placeholder="Type your message here"></textarea>
+            </div>
+            
+            <button type="submit" class="action-btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">Fan Community</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial-track" id="testimonialTrack">
+                <!-- Testimonial slides will be added dynamically with JavaScript -->
+            </div>
+            <div class="slider-nav" id="sliderNav">
+                <!-- Dots will be added dynamically with JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Announcement Section -->
+    <section class="announcement" id="announcement">
+        <div class="official-document">
+            <div class="letterhead">
+                <div class="logo-circle">
+                    <span>JD</span>
+                </div>
+                <div class="company-info">
+                    <h3>Johnny Depp Productions</h3>
+                    <p>Official Communication Division</p>
+                </div>
+            </div>
+            
+            <h2 class="document-title">OFFICIAL ANNOUNCEMENT</h2>
+            
+            <div class="document-content">
+                <p>To our valued fans and supporters,</p>
+                
+                <p>This communication serves as an important notice regarding the proliferation of fraudulent social media accounts and online impersonators claiming to be Johnny Depp or representing his management.</p>
+                
+                <p class="warning">WARNING: Johnny Depp does NOT privately message fans on social media platforms. Any account claiming to be Johnny Depp sending direct messages is fraudulent.</p>
+                
+                <p>Johnny Depp's only verified social media accounts are:</p>
+                <ul>
+                    <li>Twitter: @JohnnyDepp (verified with blue checkmark)</li>
+                    <li>Instagram: @johnnydepp (verified with blue checkmark)</li>
+                    <li>Facebook: Johnny Depp Official (verified with blue checkmark)</li>
+                </ul>
+                
+                <p>Any other profiles claiming association are impersonators attempting to scam fans through fraudulent fundraising, fake autograph sales, or other deceptive practices.</p>
+                
+                <p>If you encounter any suspicious profiles or communications claiming to be from Johnny Depp or his representatives, please immediately report them using the form below.</p>
+                
+                <p>We appreciate your continued support and vigilance in helping us protect the integrity of Johnny's official channels.</p>
+                
+                <p>Sincerely,<br>
+                <strong>Johnny Depp Management Team</strong><br>
+                Johnny Depp Productions</p>
+            </div>
+            
+            <div class="document-actions">
+                <button class="document-btn telegram-btn" onclick="window.open('https://t.me/DeppmanagementTeamverified', '_blank')">
+                    <i class="fab fa-telegram"></i> Join Telegram Channel
+                </button>
+                <button class="document-btn report-btn" id="openReportForm">
+                    <i class="fas fa-flag"></i> Submit Report
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Report Form Modal -->
+    <div class="modal" id="reportModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h2 style="margin-bottom: 25px; color: var(--accent-white);">Report Impersonator</h2>
+            <form id="reportForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="16daccac-7434-487a-86f1-315c83c193a0">
+                <input type="hidden" name="subject" value="Impersonator Report - Johnny Depp Website">
+                <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                <input type="checkbox" name="botcheck" style="display: none;">
+                
+                <div class="form-group">
+                    <label for="reportName">Your Full Name</label>
+                    <input type="text" id="reportName" name="name" class="form-control" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="reportEmail">Your Email Address</label>
+                    <input type="email" id="reportEmail" name="email" class="form-control" required placeholder="Enter your email address">
+                </div>
+                
+                <div class="form-group">
+                    <label for="reportPhone">Your Phone Number (Optional)</label>
+                    <input type="tel" id="reportPhone" name="phone" class="form-control" placeholder="Enter your phone number">
+                </div>
+                
+                <div class="form-group">
+                    <label for="reportType">Type of Complaint</label>
+                    <select id="reportType" name="complaint_type" class="form-control" required>
+                        <option value="">Select complaint type</option>
+                        <option value="fake_profile">Fake Social Media Profile</option>
+                        <option value="impersonator">Impersonator Contacting Fans</option>
+                        <option value="scam_attempt">Scam/Fraud Attempt</option>
+                        <option value="unauthorized_merch">Unauthorized Merchandise Sales</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reportPlatform">Platform (if applicable)</label>
+                    <input type="text" id="reportPlatform" name="platform" class="form-control" placeholder="e.g., Instagram, Twitter, Facebook">
+                </div>
+                
+                <div class="form-group">
+                    <label for="reportUsername">Username/Profile Link</label>
+                    <input type="text" id="reportUsername" name="username" class="form-control" placeholder="Enter suspicious username or profile link">
+                </div>
+                
+                <div class="form-group">
+                    <label for="reportDetails">Details (Please include links/usernames if applicable)</label>
+                    <textarea id="reportDetails" name="details" class="form-control" rows="5" required placeholder="Provide detailed information about the suspicious activity"></textarea>
+                </div>
+                
+                <button type="submit" class="action-btn">Submit Report</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Social Media Section -->
+    <section class="social-media" id="social">
+        <h2 class="section-title">Follow Johnny</h2>
+        <p style="max-width: 600px; margin: 0 auto 20px; color: var(--text-gray);">Stay connected with Johnny through his official social media accounts. Beware of impersonators.</p>
+        
+        <div class="social-icons">
+            <a href="https://twitter.com/JohnnyDepp" class="social-icon twitter" target="_blank" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/johnnydepp" class="social-icon instagram" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/JohnnyDepp" class="social-icon facebook" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCV4gWqkMXCfO5D-y4F9yNzw" class="social-icon" target="_blank" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.imdb.com/name/nm0000136/" class="social-icon" target="_blank" aria-label="IMDb">
+                <i class="fab fa-imdb"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <a href="#" class="logo">JOHNNY DEPP</a>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> All Rights Reserved by Johnny Depp Productions
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.querySelector('.nav-links');
+        const actionButton = document.getElementById('actionButton');
+        const fanClubBtn = document.getElementById('fanClubBtn');
+        const openReportForm = document.getElementById('openReportForm');
+        const reportModal = document.getElementById('reportModal');
+        const closeModal = document.getElementById('closeModal');
+        const testimonialTrack = document.getElementById('testimonialTrack');
+        const sliderNav = document.getElementById('sliderNav');
+        const fadeImages = document.querySelectorAll('.fade-image');
+        const loadingScreen = document.getElementById('loading');
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Page load handler
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 1000);
+        });
+        
+        // Toggle mobile menu
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+        
+        // Toggle action button text
+        let isContactMode = false;
+        function toggleActionButton() {
+            isContactMode = !isContactMode;
+            if (isContactMode) {
+                actionButton.textContent = 'Contact Management';
+                fanClubBtn.textContent = 'Join Fan Club';
+                scrollToSection('contact');
+            } else {
+                actionButton.textContent = 'Join Community';
+                fanClubBtn.textContent = 'Contact Management';
+            }
+        }
+        
+        actionButton.addEventListener('click', () => {
+            if (isContactMode) {
+                scrollToSection('contact');
+            } else {
+                // Show loading and simulate API call
+                loadingScreen.style.display = 'flex';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                    const modal = document.createElement('div');
+                    modal.className = 'modal';
+                    modal.style.display = 'flex';
+                    modal.innerHTML = `
+                        <div class="modal-content" style="max-width: 500px;">
+                            <button class="close-modal" onclick="this.parentElement.parentElement.remove()">&times;</button>
+                            <h2 style="margin-bottom: 25px; color: var(--accent-white);">Join Fan Club</h2>
+                            <form id="fanClubForm" action="https://api.web3forms.com/submit" method="POST">
+                                <input type="hidden" name="access_key" value="16daccac-7434-487a-86f1-315c83c193a0">
+                                <input type="hidden" name="subject" value="Fan Club Signup - Johnny Depp Website">
+                                <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                                <input type="checkbox" name="botcheck" style="display: none;">
+                                
+                                <div class="form-group">
+                                    <label for="fanName">Full Name</label>
+                                    <input type="text" id="fanName" name="name" class="form-control" required placeholder="Enter your full name">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="fanEmail">Email Address</label>
+                                    <input type="email" id="fanEmail" name="email" class="form-control" required placeholder="Enter your email address">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="fanCountry">Country</label>
+                                    <input type="text" id="fanCountry" name="country" class="form-control" required placeholder="Enter your country">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="fanBirthdate">Birth Date</label>
+                                    <input type="date" id="fanBirthdate" name="birthdate" class="form-control" required>
+                                </div>
+                                
+                                <button type="submit" class="action-btn">Join Now</button>
+                            </form>
+                        </div>
+                    `;
+                    document.body.appendChild(modal);
+                    
+                    // Handle fan club form submission
+                    modal.querySelector('#fanClubForm').addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        this.submit();
+                        modal.remove();
+                        alert('Thank you for joining the Johnny Depp fan club! You will receive a confirmation email shortly.');
+                    });
+                    
+                    // Close modal on background click
+                    modal.addEventListener('click', (e) => {
+                        if (e.target === modal) {
+                            modal.remove();
+                        }
+                    });
+                }, 1500);
+            }
+        });
+        
+        // Scroll to section function
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                window.scrollTo({
+                    top: section.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // Modal functionality
+        openReportForm.addEventListener('click', () => {
+            reportModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            reportModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === reportModal) {
+                reportModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Form submission handlers
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            loadingScreen.style.display = 'flex';
+            
+            // In a real implementation, this would submit to Web3Forms
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+                alert('Thank you for your message! Our team will get back to you within 48 hours.');
+                this.reset();
+            }, 1500);
+        });
+        
+        document.getElementById('reportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            loadingScreen.style.display = 'flex';
+            
+            // In a real implementation, this would submit to Web3Forms
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+                alert('Thank you for your report. Our security team will investigate this matter and take appropriate action.');
+                this.reset();
+                reportModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 1500);
+        });
+        
+        // Testimonial data
+        const testimonials = [
+            {
+                name: "Sarah Johnson",
+                location: "Los Angeles, CA",
+                text: "Being part of this community has been amazing! I've connected with so many fellow fans and we've had incredible discussions about Johnny's work. The organized events and exclusive content make it truly special.",
+                img: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+            },
+            {
+                name: "Michael Chen",
+                location: "New York, NY",
+                text: "The fan community is so welcoming. I've learned so much about Johnny's filmography and even got to attend a virtual Q&A with his production team! The depth of appreciation here is unmatched.",
+                img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+            },
+            {
+                name: "Emma Rodriguez",
+                location: "Miami, FL",
+                text: "I love how active and engaged this community is. We share art, discuss films, and support each other's creative projects inspired by Johnny's work. It's more than a fan club; it's a creative family.",
+                img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+            },
+            {
+                name: "David Wilson",
+                location: "Chicago, IL",
+                text: "As a longtime fan, I appreciate how well-moderated and respectful this community is. Great discussions and zero toxicity - rare for fan communities! The focus is always on celebrating Johnny's art.",
+                img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+            },
+            {
+                name: "Jessica Lee",
+                location: "Seattle, WA",
+                text: "The community organized a charity drive in Johnny's name last month and we raised over $5,000 for arts education. So proud to be part of this positive and impactful group of fans!",
+                img: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+            },
+            {
+                name: "Robert Garcia",
+                location: "Austin, TX",
+                text: "I've been a fan since 21 Jump Street days. This community feels like family. We celebrate Johnny's work and support each other through all of life's ups and downs.",
+                img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+            },
+            {
+                name: "Olivia Taylor",
+                location: "Boston, MA",
+                text: "The discussions here are so insightful! I've gained a deeper appreciation for Johnny's craft through conversations with fellow fans. The community resources are fantastic too!",
+                img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+            }
+        ];
+        
+        // Initialize testimonials
+        let currentSlide = 0;
+        let testimonialInterval;
+        
+        function createTestimonialSlides() {
+            testimonialTrack.innerHTML = '';
+            sliderNav.innerHTML = '';
+            
+            testimonials.forEach((testimonial, index) => {
+                // Create slide
+                const slide = document.createElement('div');
+                slide.className = 'testimonial-slide';
+                slide.innerHTML = `
+                    <div class="testimonial-card">
+                        <img src="${testimonial.img}" alt="${testimonial.name}" class="testimonial-img">
+                        <div class="testimonial-text">
+                            <h3 class="testimonial-name">${testimonial.name}</h3>
+                            <p class="testimonial-location">${testimonial.location}</p>
+                            <p>"${testimonial.text}"</p>
+                        </div>
+                    </div>
+                `;
+                testimonialTrack.appendChild(slide);
+                
+                // Create navigation dot
+                const dot = document.createElement('button');
+                dot.className = `slider-dot ${index === 0 ? 'active' : ''}`;
+                dot.setAttribute('aria-label', `Go to testimonial ${index + 1}`);
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                    resetTestimonialInterval();
+                });
+                sliderNav.appendChild(dot);
+            });
+        }
+        
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            testimonialTrack.style.transform = `translateX(-${slideIndex * 100}%)`;
+            
+            // Update active dot
+            document.querySelectorAll('.slider-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === slideIndex);
+            });
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % testimonials.length;
+            goToSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + testimonials.length) % testimonials.length;
+            goToSlide(currentSlide);
+        }
+        
+        // Auto-advance testimonials
+        function startTestimonialInterval() {
+            testimonialInterval = setInterval(nextSlide, 5000);
+        }
+        
+        function resetTestimonialInterval() {
+            clearInterval(testimonialInterval);
+            startTestimonialInterval();
+        }
+        
+        // Initialize testimonials
+        createTestimonialSlides();
+        startTestimonialInterval();
+        
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+                resetTestimonialInterval();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+                resetTestimonialInterval();
+            }
+        });
+        
+        // Pause auto-advance on hover
+        testimonialTrack.addEventListener('mouseenter', () => {
+            clearInterval(testimonialInterval);
+        });
+        
+        testimonialTrack.addEventListener('mouseleave', () => {
+            startTestimonialInterval();
+        });
+        
+        // Fade image background rotation
+        let currentImageIndex = 0;
+        
+        function rotateBackgroundImages() {
+            // Remove active class from current image
+            fadeImages[currentImageIndex].classList.remove('active');
+            
+            // Move to next image
+            currentImageIndex = (currentImageIndex + 1) % fadeImages.length;
+            
+            // Add active class to new image
+            fadeImages[currentImageIndex].classList.add('active');
+        }
+        
+        // Start background image rotation
+        setInterval(rotateBackgroundImages, 5000);
+        
+        // Add smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    scrollToSection(targetId);
+                }
+            });
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe sections for animation
+        document.querySelectorAll('.hero-text, .about-content, .news-card, .contact-form, .testimonial-card, .official-document').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
